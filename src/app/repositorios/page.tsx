@@ -25,7 +25,7 @@ export default function Repositorios() {
 
                     setTimeout(() => {
                         setRepos(data);
-                    }, 2000);
+                    }, 1000);
                     
                 });
         }
