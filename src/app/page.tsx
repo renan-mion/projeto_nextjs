@@ -14,7 +14,7 @@ interface DataProps {
 
 async function delayFetch(url: string, delay: number) {
   await new Promise(resolve => setTimeout(resolve, delay));
-  const response = await fetch(url);
+  const response = await fetch(url, { next: { revalidate: 120 } });
   return response.json();
 }
 
@@ -47,7 +47,7 @@ export default async function Home() {
           <strong>Repositório: </strong><a>{item.name}</a>
           <br />
           <OwnerRepo avatar_url={item.owner.avatar_url}
-          name={item.owner.login}
+            name={item.owner.login}
           /><br />
         </div>
       ))}
